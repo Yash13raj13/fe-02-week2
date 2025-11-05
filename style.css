@@ -1,4 +1,4 @@
-/* Reset some defaults */
+/* Reset and base styling */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,112 +6,155 @@
 }
 
 body {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eef2f7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
   color: #333;
   line-height: 1.6;
   padding: 20px;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .container {
   max-width: 900px;
-  background: white;
-  padding: 30px 40px;
+  margin: 40px auto;
+  background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 50px;
 }
 
+/* Headings */
 h1 {
-  color: #2c3e50;
+  font-size: 2.8rem;
   font-weight: 700;
-  font-size: 2.4rem;
-  margin-bottom: 24px;
   text-align: center;
-  letter-spacing: 1px;
+  margin-bottom: 40px;
+  color: #0d47a1;
+  letter-spacing: 1.2px;
 }
 
 h2 {
-  color: #34495e;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #1565c0;
+  border-bottom: 3px solid #82b1ff;
+  padding-bottom: 8px;
   font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 16px;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 6px;
-  letter-spacing: 0.5px;
 }
 
-ul {
-  list-style-type: none;
-  margin-bottom: 30px;
+/* Sections */
+section {
+  margin-bottom: 50px;
 }
 
-li {
-  padding: 8px 12px;
-  background: #f9fbff;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  border-left: 4px solid #3498db;
-  transition: background-color 0.3s ease;
+/* Sorted Employees List */
+#sorted-list {
+  list-style: none;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #cfd8dc;
+  border-radius: 8px;
+  background: #f7fbff;
+  padding: 20px 25px;
 }
 
-li:hover {
-  background-color: #ddeeff;
+#sorted-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e1e8f0;
+  font-size: 1.05rem;
+  color: #2c3e50;
+  transition: background-color 0.2s ease;
 }
 
+#sorted-list li:last-child {
+  border-bottom: none;
+}
+
+#sorted-list li:hover {
+  background-color: #d7e9fd;
+  cursor: default;
+}
+
+/* Summary Table */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 30px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.15);
   border-radius: 8px;
   overflow: hidden;
+  background-color: #fdfefe;
+  font-size: 1rem;
 }
 
 th, td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e3eefc;
   text-align: left;
-  padding: 14px 16px;
-  border-bottom: 1px solid #e0e6f0;
+  color: #34495e;
 }
 
 th {
-  background-color: #3498db;
+  background-color: #1976d2;
   color: white;
   font-weight: 600;
   letter-spacing: 0.05em;
 }
 
 tbody tr:hover {
-  background-color: #f0f7ff;
+  background-color: #e3f2fd;
 }
 
+/* Total Salary Expenditure */
 #total-expenditure {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  color: #2e7d32;
   text-align: right;
-  color: #2c3e50;
-  padding-right: 16px;
+  user-select: text;
+  margin-top: 10px;
 }
 
-@media (max-width: 680px) {
+/* Scrollbar styling for webkit browsers */
+#sorted-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sorted-list::-webkit-scrollbar-thumb {
+  background-color: #90caf9;
+  border-radius: 20px;
+}
+
+#sorted-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive design */
+@media (max-width: 720px) {
   .container {
-    padding: 20px;
+    padding: 25px 20px;
+    margin: 25px 15px;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-bottom: 30px;
   }
 
   h2 {
-    font-size: 1.3rem;
-    padding-bottom: 4px;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
   }
 
-  th, td {
-    padding: 10px 8px;
+  #sorted-list {
+    max-height: 220px;
+    padding: 15px 18px;
+  }
+
+  table, th, td {
+    font-size: 0.9rem;
+  }
+
+  #total-expenditure {
+    font-size: 1.3rem;
   }
 }
